@@ -37,5 +37,3 @@ Things you may want to cover:
 - dev
 - medium
 - website
-
-### Auth

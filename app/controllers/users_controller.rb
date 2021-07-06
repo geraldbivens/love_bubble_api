@@ -4,6 +4,11 @@ class UsersController < ApplicationController
         render json: @users
     end
 
+    def show
+        @user = User.find(params[:id])
+        render json: @user
+    end
+
     def create
         @user = User.new(user_params)
         if @user.save
@@ -32,7 +37,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require('user').permit([:first_name, :last_name, :email, :password, :cohort, :linkedin, :github, :dev, :medium, :website])
+        params.require('user').permit([:first_name, :last_name, :username, :email, :password, :cohort, :linkedin, :github, :dev, :medium, :website])
     end
 
     def is_user_authorized?(request)
